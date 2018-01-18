@@ -1,26 +1,23 @@
-/*
- * http://love.hackerzhou.me
- */
 
 // variables
 var $win = $(window);
 var clientWidth = $win.width();
 var clientHeight = $win.height();
 
-$(window).resize(function() {
-    var newWidth = $win.width();
-    var newHeight = $win.height();
-    if (newWidth != clientWidth && newHeight != clientHeight) {
-        location.replace(location);
-    }
+$(window).resize(function () {
+	var newWidth = $win.width();
+	var newHeight = $win.height();
+	if (newWidth != clientWidth && newHeight != clientHeight) {
+		location.replace(location);
+	}
 });
 
-(function($) {
-	$.fn.typewriter = function() {
-		this.each(function() {
+(function ($) {
+	$.fn.typewriter = function () {
+		this.each(function () {
 			var $ele = $(this), str = $ele.html(), progress = 0;
 			$ele.html('');
-			var timer = setInterval(function() {
+			var timer = setInterval(function () {
 				var current = str.substr(progress, 1);
 				if (current == '<') {
 					progress = str.indexOf('>', progress) + 1;
@@ -37,7 +34,7 @@ $(window).resize(function() {
 	};
 })(jQuery);
 
-function timeElapse(date){
+function timeElapse(date) {
 	var current = Date();
 	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
 	var days = Math.floor(seconds / (3600 * 24));
@@ -55,6 +52,6 @@ function timeElapse(date){
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
-	var result = "<span class=\"digit\">" + days + "</span> Days <span class=\"digit\">" + hours + "</span> Hours <span class=\"digit\">" + minutes + "</span> Min <span class=\"digit\">" + seconds + "</span> Sec"; 
+	var result = "<span class=\"digit\">" + days + "</span> Days <span class=\"digit\">" + hours + "</span> Hours <span class=\"digit\">" + minutes + "</span> Min <span class=\"digit\">" + seconds + "</span> Sec";
 	$("#clock").html(result);
 }
